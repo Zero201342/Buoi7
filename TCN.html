@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trang cá nhân cải tiến</title>
+    <link rel="stylesheet" href="tcn1.css">
+</head>
+<body>
+    <!-- Header Section -->
+    <div class="header-wrapper">
+        <header class="profile-header">
+            <div class="profile-info">
+                <img src="Selfie.jpg" alt="Ảnh cá nhân" class="profile-image">
+                <h1>Lê Trung Hiếu</h1>
+            </div>
+            <div class="logo-wrapper">
+                <a href="https://www.facebook.com/profile.php?id=100046663641547" target="_blank">
+                    <img src="Facebook.jpg" alt="Facebook" class="logo-circle">
+                </a>
+                <a href="https://www.instagram.com/trunghieu9147/" target="_blank">
+                    <img src="Instagram.jpg" alt="Instagram" class="logo-circle">
+                </a>
+                <a href="https://www.youtube.com/@two002zero3" target="_blank">
+                    <img src="youtube.png" alt="YouTube" class="logo-circle">
+                </a>
+            </div>
+        </header>
+    </div>
+
+    <!-- Navigation Menu -->
+    <nav class="navbar">
+        <ul>
+            <li><a href="#" onclick="toggleGroup('about-me', 'group-1')">Introduce</a></li>
+            <li><a href="#" onclick="toggleGroup('education', 'group-1')">Learning Process</a></li>
+            <li><a href="#" onclick="toggleGroup('skills', 'group-1')">Skills</a></li>
+            <li><a href="#" onclick="toggleGroup('work-goals', 'group-1')">Job Orientation</a></li>
+            <li><a href="#" onclick="toggleGroup('coursework', 'group-2')">Course Exercises</a></li>
+            <li><a href="#" onclick="toggleGroup('projects', 'group-2')">Projects</a></li>
+            <li><a href="#" onclick="toggleGroup('contact', 'group-2')">Contact</a></li>
+            <li><a href="#" onclick="toggleGroup('blog', 'group-2')">Blog</a></li>
+        </ul>
+    </nav>
+
+    <!-- Main Content -->
+    <div class="container" id="content-container">
+        <div class="left-container group-1">
+            <!-- About Section -->
+            <section id="about-me" class="content-section card">
+                <div class="card-header">
+                    <h2>Giới thiệu (Introduce)</h2>
+                </div>
+                <p>Helloooo everybody! I’m Le Trung Hieu, a student with a passion for programming...</p>
+            </section>
+
+            <!-- Education Section -->
+            <section id="education" class="content-section card">
+                <div class="card-header">
+                    <h2>Quá trình học tập (Learning Process)</h2>
+                </div>
+                <p>I’m currently studying at Hanoi Metropolitan University...</p>
+            </section>
+
+            <!-- Skills Section -->
+            <section id="skills" class="content-section card">
+                <div class="card-header">
+                    <h2>Kỹ năng (Skills)</h2>
+                </div>
+                <ul>
+                    <li>Knowledge of C and C++</li>
+                    <li>HTML, CSS, and JavaScript</li>
+                </ul>
+            </section>
+
+            <!-- Work Goals Section -->
+            <section id="work-goals" class="content-section card">
+                <div class="card-header">
+                    <h2>Định hướng công việc (Job Orientation)</h2>
+                </div>
+                <p>My goal is to become a proficient software developer...</p>
+            </section>
+        </div>
+
+        <div class="right-container group-2">
+            <!-- Coursework Section -->
+            <section id="coursework" class="content-section card">
+                <div class="card-header">
+                    <h2>Course Exercises</h2>
+                </div>
+                <p>Here are some of the exercises and assignments I completed during my course...</p>
+            </section>
+
+            <!-- Projects Section -->
+            <section id="projects" class="content-section card">
+                <div class="card-header">
+                    <h2>Projects</h2>
+                </div>
+                <p>Some of my exciting projects include building a website, mobile applications...</p>
+            </section>
+
+            <!-- Contact Section -->
+            <section id="contact" class="content-section card">
+                <div class="card-header">
+                    <h2>Contact</h2>
+                </div>
+                <p>Feel free to reach out to me through my social media platforms or email...</p>
+            </section>
+
+            <!-- Blog Section -->
+            <section id="blog" class="content-section card">
+                <div class="card-header">
+                    <h2>Blog</h2>
+                </div>
+                <p>I write about my experiences in programming, technology trends, and personal growth...</p>
+            </section>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; Bản quyền-ed by Híu Trung</p>
+    </footer>
+
+    <!-- JS for Navigation -->
+    <script>
+        // Toggle section display for group 1 and group 2
+        function toggleGroup(sectionId, group) {
+            const groupSections = document.querySelectorAll(`.${group} .content-section`);
+            groupSections.forEach(section => section.classList.remove('active'));
+
+            const selectedSection = document.querySelector(`#${sectionId}`);
+            if (selectedSection) {
+                selectedSection.classList.add('active');
+            }
+        }
+
+        document.addEventListener('DOMContentLoaded', () => {
+            // Set initial sections to be visible on page load
+            document.querySelector('#about-me').classList.add('active');
+            document.querySelector('#coursework').classList.add('active');
+        });
+
+        // Adding hover effect to logos
+        const logos = document.querySelectorAll('.logo-circle');
+        logos.forEach(logo => {
+            logo.addEventListener('mouseover', () => {
+                logo.style.transform = 'scale(1.2)';
+            });
+
+            logo.addEventListener('mouseout', () => {
+                logo.style.transform = 'scale(1)';
+            });
+
+            logo.addEventListener('click', () => {
+                window.open(logo.parentElement.href, '_blank');
+            });
+        });
+
+    </script>
+</body>
+</html>
